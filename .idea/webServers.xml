@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="2230e5bc-2e95-46ed-9024-e4c4d0215b42" name="recu" url="http://localhost/recu">
+        <fileTransfer mountedRoot="/" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

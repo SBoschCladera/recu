@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @var array $Films
+ * @var array $userFilms
+ */
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Films</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Films</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Release year</th>
+        <th>Language</th>
+        <th>Length</th>
+        <th>Rating</th>
+        <th>Actors</th>
+        <th>Categories</th>
+        <th>Rent</th>
+    </tr>
+    <?php foreach ($Films as $film) { ?>
+        <tr>
+            <td><?php echo $film->id; ?></td>
+            <td><?php echo $film->title; ?></td>
+            <td><?php echo $film->description; ?></td>
+            <td><?php echo $film->releaseYear; ?></td>
+            <td><?php echo $film->language->name; ?></td>
+            <td><?php echo $film->length; ?></td>
+            <td><?php echo $film->rating; ?></td>
+            <td>
+                <?php foreach ($film->actors as $actor) {
+                    echo $actor->firstName . " " . $actor->lastName . ", ";
+                } ?>
+            </td>
+            <td>
+            <td><?php echo $film->category->name; ?></td>
+            </td>
+            <td><a href="?action=rent&filmId=<?php echo $film->id; ?>">Rent</a></td>
+        </tr>
+    <?php } ?>
+</table>
+</body>
+</html>
